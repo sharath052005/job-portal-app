@@ -1,7 +1,9 @@
 .auth-page {
   display: flex;
-  min-height: 100vh;
+  min-height: 108vh;
   padding-top: 0;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Left panel */
@@ -168,6 +170,9 @@
 .auth-form-wrap {
   width: 100%;
   max-width: 380px;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  border-radius: 10px;
+  padding: 24px 32px;
 }
 
 .auth-form-header {

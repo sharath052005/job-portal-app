@@ -255,14 +255,12 @@ export const CATEGORIES = [
   { name: 'Design', icon: '🎨', count: 1876, color: '#db2777', bg: '#fdf2f8' },
   { name: 'Marketing', icon: '📣', count: 1543, color: '#d97706', bg: '#fffbeb' },
   { name: 'Finance', icon: '💰', count: 1289, color: '#059669', bg: '#ecfdf5' },
-  { name: 'Product', icon: '🚀', count: 987, color: '#dc2626', bg: '#fef2f2' },
 ];
 
 export const COMPANIES = [
   { name: 'Stripe', jobs: 12 },
   { name: 'Notion', jobs: 8 },
   { name: 'Vercel', jobs: 15 },
-  { name: 'Linear', jobs: 6 },
   { name: 'Figma', jobs: 11 },
   { name: 'Airbnb', jobs: 9 },
 ];

@@ -14,43 +14,6 @@ export default function Login() {
 
   return (
     <div className="auth-page page-enter">
-      <div className="auth-side auth-side--left">
-        <div className="auth-brand">
-          <Link to="/" className="auth-logo">
-            <span className="auth-logo-icon">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                <path d="M20 7H4C2.9 7 2 7.9 2 9V19C2 20.1 2.9 21 4 21H20C21.1 21 22 20.1 22 19V9C22 7.9 21.1 7 20 7Z" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                <path d="M16 7V5C16 3.9 15.1 3 14 3H10C8.9 3 8 3.9 8 5V7" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                <line x1="12" y1="12" x2="12" y2="16" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                <line x1="10" y1="14" x2="14" y2="14" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-              </svg>
-            </span>
-            Job<strong>Portal</strong>
-          </Link>
-          <div className="auth-illustration">
-            <div className="auth-blob" />
-            <div className="auth-float-card auth-float-card--1">
-              <span>🎉</span>
-              <div>
-                <strong>New offer!</strong>
-                <p>Senior Designer at Figma</p>
-              </div>
-            </div>
-            <div className="auth-float-card auth-float-card--2">
-              <span>✅</span>
-              <div>
-                <strong>Application sent</strong>
-                <p>Stripe Engineering</p>
-              </div>
-            </div>
-            <div className="auth-center-text">
-              <h2>Your next career<br />starts here</h2>
-              <p>Join 2M+ professionals who found their dream job through JobPortal.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div className="auth-side auth-side--right">
         <div className="auth-form-wrap">
           <div className="auth-form-header">

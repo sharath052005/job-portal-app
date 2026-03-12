@@ -29,7 +29,7 @@ export default function Home() {
         <div className="container hero__content">
           <div className="hero__badge">
             <span className="hero__badge-dot" />
-            🎉 Over 50,000 new jobs this month
+            🎉 Over 10,000 new jobs this month
           </div>
 
           <h1 className="hero__title">
@@ -45,13 +45,6 @@ export default function Home() {
 
           <div className="hero__search">
             <SearchBar />
-          </div>
-
-          <div className="hero__suggestions">
-            <span>Popular:</span>
-            {['React Developer', 'Data Scientist', 'Product Manager', 'UI Designer'].map(s => (
-              <Link key={s} to={`/jobs?q=${s}`} className="hero__suggestion-tag">{s}</Link>
-            ))}
           </div>
         </div>
 
@@ -134,7 +127,7 @@ export default function Home() {
             <div>
               <p className="section__label">Hiring now</p>
               <h2 className="section__title">Top Companies Hiring</h2>
-              <p className="section__desc">Join thousands of companies building their teams with JobPortal</p>
+              <p className="section__desc">Join thousands of companies building their teams with HireSphere</p>
             </div>
           </div>
           <div className="companies-grid">
@@ -160,7 +153,7 @@ export default function Home() {
               <p>Post your first job for free and reach millions of qualified candidates.</p>
             </div>
             <div className="cta-banner__actions">
-              <Link to="/post-job" className="btn btn-primary cta-banner__btn">Post a Job Free</Link>
+              <Link to="/post-job" className="btn btn-primary cta-banner__btn">Post a Job</Link>
               <Link to="/signup" className="btn cta-banner__btn-outline">Learn more</Link>
             </div>
           </div>

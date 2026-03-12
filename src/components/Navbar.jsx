@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import '../styles/navbar.css'
+import logo from '../assets/logo.png'
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
@@ -23,17 +24,10 @@ export default function Navbar() {
   return (
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__inner container">
-        {/* Logo */}
-        <Link to="/" className="navbar__logo">
-          <span className="navbar__logo-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-              <path d="M20 7H4C2.9 7 2 7.9 2 9V19C2 20.1 2.9 21 4 21H20C21.1 21 22 20.1 22 19V9C22 7.9 21.1 7 20 7Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <path d="M16 7V5C16 3.9 15.1 3 14 3H10C8.9 3 8 3.9 8 5V7" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-              <line x1="12" y1="12" x2="12" y2="16" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-              <line x1="10" y1="14" x2="14" y2="14" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-            </svg>
-          </span>
-          <span>Job<strong>Portal</strong></span>
+        {/* Logo */} 
+        <Link to="/" className="navbar__logo"> 
+          <img src={logo} alt="HireSphere" className="navbar__logo-img" />
+          <span>Hire<strong>Sphere</strong></span>
         </Link>
 
         {/* Desktop Nav Links */}

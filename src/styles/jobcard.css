@@ -1,12 +1,13 @@
+/* ─── JOB CARD ───────────────────────────────────────────── */
 .job-card {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 22px;
-  transition: var(--transition-slow);
+  gap: 13px;
+  background: #ffffff;
+  border: 1px solid #e8edf2;
+  border-radius: 12px;
+  padding: 20px 22px;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -14,142 +15,210 @@
   color: inherit;
 }
 
-.job-card::before {
-  content: '';
+.job-card:hover {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.09);
+  border-color: #d0daf0;
+  transform: translateY(-2px);
+}
+
+/* Featured: left blue border */
+.job-card--featured {
+  border-left: 3px solid #2563EB;
+}
+
+/* Featured star corner */
+.job-card__featured-strip {
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--primary), var(--accent));
-  opacity: 0;
-  transition: var(--transition);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 36px 36px 0;
+  border-color: transparent #dbeafe transparent transparent;
 }
 
-.job-card:hover {
-  border-color: var(--primary);
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-3px);
-}
-
-.job-card:hover::before {
-  opacity: 1;
-}
-
-.job-card--featured {
-  border-color: rgba(37, 99, 235, 0.2);
-  background: linear-gradient(145deg, #ffffff, var(--primary-light));
-}
-
-.job-card__featured-badge {
+.job-card__featured-strip::after {
+  content: '★';
   position: absolute;
-  top: 14px;
-  right: 14px;
-  background: linear-gradient(135deg, var(--primary), var(--accent));
-  color: white;
-  font-size: 0.7rem;
-  font-weight: 700;
-  padding: 3px 10px;
-  border-radius: var(--radius-full);
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
+  top: 3px;
+  right: -31px;
+  font-size: 0.6rem;
+  color: #2563EB;
 }
 
-/* Header */
-.job-card__header {
+/* ─── TOP ROW ─────────────────────────────────────────────── */
+.job-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.job-card__title-block {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 0;
+}
+
+.job-card__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+.job-card:hover .job-card__title {
+  color: #2563EB;
+}
+
+.job-card__company-row {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
+.job-card__company {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #64748b;
+}
+
+/* Actively hiring badge */
+.job-card__active-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid #22c55e;
+  color: #16a34a;
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: transparent;
+  letter-spacing: 0.01em;
+}
+
+.job-card__active-dot {
+  width: 6px;
+  height: 6px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: activePulse 2s infinite;
+  flex-shrink: 0;
+}
+
+@keyframes activePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+/* Company Logo */
 .job-card__logo {
-  width: 44px;
-  height: 44px;
+  width: 46px;
+  height: 46px;
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   font-weight: 800;
   flex-shrink: 0;
+  border: 1px solid rgba(0,0,0,0.06);
 }
 
-.job-card__meta {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  flex: 1;
-  min-width: 0;
-}
-
-.job-card__company {
-  font-size: 0.85rem;
-  font-weight: 600;
-  color: var(--text-secondary);
-}
-
-.job-card__location {
+/* ─── META ROW ────────────────────────────────────────────── */
+.job-card__meta-row {
   display: flex;
   align-items: center;
-  gap: 4px;
-  font-size: 0.8rem;
-  color: var(--text-muted);
+  flex-wrap: wrap;
+  gap: 6px 18px;
 }
 
-.job-card__posted {
-  font-size: 0.75rem;
-  color: var(--text-muted);
+.job-card__meta-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.82rem;
+  color: #475569;
+  font-weight: 400;
+}
+
+.job-card__meta-item svg {
+  color: #94a3b8;
   flex-shrink: 0;
 }
 
-/* Title */
-.job-card__title {
-  font-size: 1.05rem;
-  font-weight: 700;
-  color: var(--text-primary);
-  line-height: 1.3;
-  transition: var(--transition);
-}
-
-.job-card:hover .job-card__title {
-  color: var(--primary);
-}
-
-/* Tags */
-.job-card__tags {
+/* ─── SKILLS ROW ──────────────────────────────────────────── */
+.job-card__skills-row {
   display: flex;
-  flex-wrap: wrap;
+  align-items: baseline;
   gap: 6px;
+  /* single line — clip overflow */
+  overflow: hidden;
+  white-space: nowrap;
 }
 
-/* Footer */
-.job-card__footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 4px;
-  padding-top: 14px;
-  border-top: 1px solid var(--border);
-}
-
-.job-card__salary {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.875rem;
-  font-weight: 700;
-  color: var(--success);
-}
-
-.job-card__cta {
+.job-card__skills-label {
   font-size: 0.8rem;
   font-weight: 600;
-  color: var(--primary);
-  opacity: 0;
-  transition: var(--transition);
+  color: #475569;
+  flex-shrink: 0;
 }
 
-.job-card:hover .job-card__cta {
-  opacity: 1;
+.job-card__skills-list {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow: hidden;
+  /* fade out at the right edge when skills overflow */
+  -webkit-mask-image: linear-gradient(to right, black 80%, transparent 100%);
+  mask-image: linear-gradient(to right, black 80%, transparent 100%);
+}
+
+.job-card__skill {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.8rem;
+  color: #64748b;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.job-card__skill-dot {
+  margin: 0 6px;
+  color: #cbd5e1;
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+/* ─── FOOTER ──────────────────────────────────────────────── */
+.job-card__footer {
+  padding-top: 12px;
+  border-top: 1px solid #f1f5f9;
+  display: flex;
+  align-items: center;
+}
+
+/* Posted time pill — matches Internshala style */
+.job-card__posted-time {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #475569;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 4px 12px;
+}
+
+.job-card__posted-time svg {
+  color: #64748b;
+  flex-shrink: 0;
 }

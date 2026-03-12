@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import '../styles/footer.css'
+import logo from '../assets/logo.png'
 
 export default function Footer() {
   return (
@@ -9,22 +10,11 @@ export default function Footer() {
           {/* Brand */}
           <div className="footer__brand">
             <Link to="/" className="footer__logo">
-              <span className="footer__logo-icon">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                  <path d="M20 7H4C2.9 7 2 7.9 2 9V19C2 20.1 2.9 21 4 21H20C21.1 21 22 20.1 22 19V9C22 7.9 21.1 7 20 7Z" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
-                  <path d="M16 7V5C16 3.9 15.1 3 14 3H10C8.9 3 8 3.9 8 5V7" stroke="white" strokeWidth="2.5" strokeLinecap="round"/>
-                  <line x1="12" y1="12" x2="12" y2="16" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                  <line x1="10" y1="14" x2="14" y2="14" stroke="white" strokeWidth="2" strokeLinecap="round"/>
-                </svg>
-              </span>
-              Job<strong>Portal</strong>
+              <img src={logo} alt="HireSphere" className="navbar__logo-img" />
+              <span className='title'>Hire<strong>Sphere</strong></span>
             </Link>
             <p>Your launchpad to the world's most exciting careers. Connecting talent with opportunity.</p>
-            <div className="footer__social">
-              {['Twitter', 'LinkedIn', 'GitHub'].map(s => (
-                <a key={s} href="#" className="footer__social-link">{s[0]}</a>
-              ))}
-            </div>
+            
           </div>
 
           {/* Links */}
@@ -54,7 +44,7 @@ export default function Footer() {
         </div>
 
         <div className="footer__bottom">
-          <p>© 2024 JobPortal, Inc. All rights reserved.</p>
+          <p>© 2026 JobPortal, Inc. All rights reserved.</p>
           <div className="footer__legal">
             <a href="#">Privacy</a>
             <a href="#">Terms</a>
