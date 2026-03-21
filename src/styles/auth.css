@@ -177,6 +177,9 @@
 
 .auth-form-header {
   margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .auth-form-header h1 {
