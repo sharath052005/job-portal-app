@@ -1,10 +1,15 @@
 import { useParams, Link } from 'react-router-dom'
 import { JOBS } from '../data/jobs'
+import { useEffect } from 'react'
 import '../styles/jobdetails.css'
 
 export default function JobDetails() {
   const { id } = useParams()
   const job = JOBS.find(j => j.id === Number(id))
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' })
+  }, [id])
 
   if (!job) {
     return (

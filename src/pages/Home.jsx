@@ -120,24 +120,86 @@ export default function Home() {
         </div>
       </section>
 
+     
       {/* Companies */}
-      <section className="section section--alt" id="companies">
+      <section className="section companies-section" id="companies">
         <div className="container">
           <div className="section__header" style={{ justifyContent: 'center', textAlign: 'center' }}>
             <div>
-              <p className="section__label">Hiring now</p>
-              <h2 className="section__title">Top Companies Hiring</h2>
+              <p className="section__label">Trusted by the best</p>
+              <h2 className="section__title">Top Companies Hiring Now</h2>
               <p className="section__desc">Join thousands of companies building their teams with HireSphere</p>
             </div>
           </div>
-          <div className="companies-grid">
-            {COMPANIES.map(c => (
-              <div key={c.name} className="company-pill">
-                <div className="company-pill__logo">{c.name[0]}</div>
-                <div>
-                  <strong>{c.name}</strong>
-                  <span>{c.jobs} open roles</span>
+        </div>
+
+        {/* Full-width scrolling marquee — outside container so it bleeds edge to edge */}
+        <div className="marquee-wrapper">
+          <div className="marquee-track">
+            {/* Render logos twice for seamless infinite loop */}
+            {[...Array(2)].map((_, repeatIdx) => (
+              <div className="marquee-group" key={repeatIdx} aria-hidden={repeatIdx === 1}>
+
+                <div className="marquee-logo">
+                  <svg viewBox="0 0 100 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="24" fontFamily="Arial Black, sans-serif" fontSize="26" fontWeight="900">Google</text>
+                  </svg>
                 </div>
+
+                <div className="marquee-logo">
+                  <svg viewBox="0 0 110 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="24" fontFamily="Arial, sans-serif" fontSize="24" fontWeight="400" letterSpacing="-1">amazon</text>
+                  </svg>
+                </div>
+
+                <div className="marquee-logo">
+                  <svg viewBox="0 0 90 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="24" fontFamily="Arial Black, sans-serif" fontSize="26" fontWeight="900">Stripe</text>
+                  </svg>
+                </div>
+
+                <div className="marquee-logo">
+                  <svg viewBox="0 0 100 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="24" fontFamily="Georgia, serif" fontSize="24" fontWeight="700">Notion</text>
+                  </svg>
+                </div>
+
+                <div className="marquee-logo">
+                  <svg viewBox="0 0 80 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="24" fontFamily="Arial Black, sans-serif" fontSize="26" fontWeight="900">Figma</text>
+                  </svg>
+                </div>
+
+                <div className="marquee-logo">
+                  <svg viewBox="0 0 110 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="24" fontFamily="Arial Black, sans-serif" fontSize="23" fontWeight="900">Airbnb</text>
+                  </svg>
+                </div>
+
+                <div className="marquee-logo">
+                  <svg viewBox="0 0 90 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="24" fontFamily="Arial Black, sans-serif" fontSize="25" fontWeight="900">Vercel</text>
+                  </svg>
+                </div>
+
+                <div className="marquee-logo">
+                  <svg viewBox="0 0 90 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="24" fontFamily="Arial, sans-serif" fontSize="24" fontWeight="700">Linear</text>
+                  </svg>
+                </div>
+
+                <div className="marquee-logo">
+                  <svg viewBox="0 0 100 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="24" fontFamily="Arial Black, sans-serif" fontSize="23" fontWeight="900">Shopify</text>
+                  </svg>
+                </div>
+
+                <div className="marquee-logo">
+                  <svg viewBox="0 0 80 30" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                    <text x="0" y="24" fontFamily="Arial Black, sans-serif" fontSize="25" fontWeight="900">Brex</text>
+                  </svg>
+                </div>
+
               </div>
             ))}
           </div>

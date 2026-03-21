@@ -8,10 +8,14 @@ import Login from './pages/Login'
 import Signup from './pages/Signup'
 import Dashboard from './pages/Dashboard'
 import PostJob from './pages/PostJob'
+import useScrollToTop from './hooks/useScrollToTop'
 
-function App() {
+// Inner component so it can use router hooks
+function AppContent() {
+  useScrollToTop()
+
   return (
-    <Router>
+    <>
       <Navbar />
       <main>
         <Routes>
@@ -25,8 +29,14 @@ function App() {
         </Routes>
       </main>
       <Footer />
-    </Router>
+    </>
   )
 }
 
-export default App
+export default function App() {
+  return (
+    <Router>
+      <AppContent />
+    </Router>
+  )
+}

@@ -206,11 +206,19 @@
 
 /* ─── SECTIONS ─────────────────────────────────────────────── */
 .section {
-  padding: 160px 0;
+  padding: 80px 0;
 }
 
 .section--alt {
   background: var(--bg-subtle);
+}
+
+/* Add a visible separator between every section */
+.section + .section,
+.section + .companies-section,
+.companies-section + .section,
+.companies-section + .cta-banner {
+  border-top: 1px solid #e8edf4;
 }
 
 .section__header {
@@ -316,6 +324,7 @@
 /* ─── CTA BANNER ───────────────────────────────────────────── */
 .cta-banner {
   background: linear-gradient(135deg, #1e3a8a, var(--primary), #0891b2);
+  margin-top: 80px;
   padding: 64px 0;
   position: relative;
   overflow: hidden;
@@ -398,4 +407,99 @@
 @media (max-width: 540px) {
   .jobs-grid { grid-template-columns: 1fr; }
   .categories-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ─── COMPANIES MARQUEE ───────────────────────────────────── */
+.companies-section {
+  background: #eef2f7;
+  padding-top: 80px;
+  padding-bottom: 80px;
+  margin-top: 0;
+}
+
+.companies-section .section__label {
+  color: #2563EB;
+}
+
+.companies-section .section__title {
+  color: #0f172a;
+}
+
+.companies-section .section__desc {
+  color: #64748b;
+}
+
+/* Full-bleed strip */
+.marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+  background: #dde6f0;
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  margin-top: 40px;
+  padding: 22px 0;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 8%,
+    black 92%,
+    transparent 100%
+  );
+}
+
+/* The moving track */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 28s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Each duplicate group */
+.marquee-group {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+/* Individual logo item */
+.marquee-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 48px;
+  opacity: 0.55;
+  transition: opacity 0.25s ease;
+  cursor: default;
+  border-right: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.marquee-logo:last-child {
+  border-right: none;
+}
+
+.marquee-logo:hover {
+  opacity: 1;
+}
+
+.marquee-logo svg {
+  height: 22px;
+  width: auto;
+  color: #1e3a6e;
+  display: block;
 }
