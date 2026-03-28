@@ -1,0 +1,917 @@
+/* ─── PAGE ───────────────────────────────────────────────────── */
+.profile-page {
+  padding-top: 90px;
+  padding-bottom: 80px;
+  min-height: 100vh;
+  background: var(--bg-subtle);
+}
+
+.profile-loading {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 68px;
+}
+
+.profile-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+/* ─── LAYOUT ─────────────────────────────────────────────────── */
+.profile-layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* ─── CARD ───────────────────────────────────────────────────── */
+.profile-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.profile-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.profile-card__title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* ─── HERO CARD ──────────────────────────────────────────────── */
+.profile-hero-card {
+  text-align: center;
+}
+
+.profile-avatar-wrap {
+  margin-bottom: 14px;
+}
+
+.profile-avatar-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--border);
+}
+
+.profile-avatar-letter {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 800;
+  font-family: var(--font-display);
+  margin: 0 auto;
+}
+
+.profile-name {
+  font-size: 1.2rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  letter-spacing: -0.02em;
+}
+
+.profile-headline {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.profile-location-row {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 16px;
+}
+
+.profile-location-row span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.profile-edit-btn {
+  width: 100%;
+  justify-content: center;
+  margin-top: 4px;
+}
+
+/* ─── PROFILE COMPLETION ─────────────────────────────────────── */
+.profile-completion {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.profile-completion__bar {
+  flex: 1;
+  height: 8px;
+  background: var(--bg-subtle);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.profile-completion__fill {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  transition: width 0.6s ease;
+}
+
+.profile-completion__pct {
+  font-size: 0.85rem;
+  font-weight: 700;
+  min-width: 36px;
+  text-align: right;
+}
+
+.profile-completion__pct.strong { color: var(--success); }
+.profile-completion__pct.medium { color: var(--accent-warm); }
+.profile-completion__pct.weak   { color: var(--danger); }
+
+.profile-completion__label {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* ─── CONTACT LIST ───────────────────────────────────────────── */
+.profile-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.profile-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.profile-contact-link {
+  color: var(--primary);
+  font-weight: 500;
+}
+
+.profile-contact-link:hover {
+  text-decoration: underline;
+}
+
+/* ─── SECTION EDIT BTN ───────────────────────────────────────── */
+.profile-section-edit {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: 5px 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.profile-section-edit:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+.profile-section-add {
+  color: var(--primary);
+  border-color: var(--primary);
+  background: var(--primary-light);
+}
+
+/* ─── BIO ────────────────────────────────────────────────────── */
+.profile-bio {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.profile-add-prompt {
+  background: none;
+  border: 1.5px dashed var(--border);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  width: 100%;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: var(--transition);
+  font-weight: 500;
+}
+
+.profile-add-prompt:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+/* ─── KEY DETAILS GRID ───────────────────────────────────────── */
+.profile-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.profile-detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.profile-detail-icon {
+  font-size: 1.1rem;
+  margin-top: 1px;
+}
+
+.profile-detail-label {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 2px;
+}
+
+.profile-detail-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ─── SKILLS ─────────────────────────────────────────────────── */
+.profile-skills-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.profile-skill-tag {
+  padding: 6px 16px;
+  background: var(--bg-subtle);
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-full);
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.profile-skill-tag:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+/* ─── TIMELINE ───────────────────────────────────────────────── */
+.profile-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.profile-timeline-item {
+  display: flex;
+  gap: 16px;
+  position: relative;
+  padding-bottom: 24px;
+}
+
+.profile-timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.profile-timeline-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--primary);
+  flex-shrink: 0;
+  margin-top: 5px;
+  z-index: 1;
+}
+
+.profile-timeline-dot--edu {
+  background: var(--accent);
+}
+
+.profile-timeline-line {
+  position: absolute;
+  left: 5px;
+  top: 17px;
+  width: 2px;
+  bottom: 0;
+  background: var(--border);
+  z-index: 0;
+}
+
+.profile-timeline-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.profile-timeline-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.profile-timeline-content h4 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 3px;
+}
+
+.profile-timeline-sub {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 3px;
+}
+
+.profile-timeline-date {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.profile-timeline-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+.profile-item-actions {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+
+.profile-item-actions button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.85rem;
+  padding: 4px;
+  border-radius: 6px;
+  transition: var(--transition);
+  opacity: 0.5;
+}
+
+.profile-item-actions button:hover {
+  opacity: 1;
+  background: var(--bg-subtle);
+}
+
+/* ─── TOAST ──────────────────────────────────────────────────── */
+.profile-toast {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #065f46;
+  border-radius: var(--radius-md);
+  padding: 12px 18px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 20px;
+  animation: fadeSlideUp 0.3s ease;
+}
+
+/* ─── MODAL ──────────────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  backdrop-filter: blur(2px);
+  animation: fadeIn 0.15s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.modal-box {
+  background: white;
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 620px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.2);
+  animation: modalSlideUp 0.2s ease forwards;
+}
+
+@keyframes modalSlideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1;
+}
+
+.modal-header h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: var(--transition);
+}
+
+.modal-close:hover {
+  background: var(--bg-subtle);
+  color: var(--text-primary);
+}
+
+.modal-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px 24px;
+  border-top: 1px solid var(--border);
+  position: sticky;
+  bottom: 0;
+  background: white;
+}
+
+.modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.modal-field label {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.modal-field input,
+.modal-field select,
+.modal-field textarea {
+  padding: 10px 13px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  background: white;
+  transition: var(--transition);
+  font-family: var(--font-body);
+  resize: vertical;
+}
+
+.modal-field input:focus,
+.modal-field select:focus,
+.modal-field textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+  outline: none;
+}
+
+.modal-field input::placeholder,
+.modal-field textarea::placeholder {
+  color: var(--text-muted);
+}
+
+.modal-field__hint {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-align: right;
+}
+
+.modal-field-row {
+  display: flex;
+  gap: 14px;
+}
+
+.modal-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+}
+
+.modal-checkbox input { cursor: pointer; }
+
+/* Skills in modal */
+.modal-skill-input {
+  display: flex;
+  gap: 8px;
+}
+
+.modal-skill-input input { flex: 1; }
+.modal-skill-input .btn { padding: 9px 16px; border-radius: var(--radius-md); font-size: 0.82rem; }
+
+.modal-skills-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.modal-skill-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--primary-light);
+  border: 1px solid var(--primary-mid);
+  color: var(--primary);
+  border-radius: var(--radius-full);
+  padding: 4px 10px;
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.modal-skill-chip button {
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* ─── RESPONSIVE ─────────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .profile-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .profile-sidebar {
+    display: contents;
+  }
+
+  .profile-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-field-row {
+    flex-direction: column;
+  }
+}
+
+/* ─── EDUCATION BADGE UNDER NAME ─────────────────────────── */
+.profile-edu-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--primary-light);
+  border: 1px solid var(--primary-mid);
+  color: var(--primary);
+  border-radius: var(--radius-full);
+  padding: 5px 12px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  margin: 8px auto 0;
+  max-width: 100%;
+  text-align: center;
+}
+
+.profile-edu-badge svg {
+  flex-shrink: 0;
+}
+
+/* ─── RESUME CARD ─────────────────────────────────────────── */
+.profile-resume-dropzone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 2px dashed var(--border);
+  border-radius: var(--radius-md);
+  padding: 36px 24px;
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.profile-resume-dropzone:hover {
+  border-color: var(--primary);
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+.profile-resume-dropzone p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.profile-resume-dropzone span {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.profile-resume-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+
+.profile-resume-icon {
+  flex-shrink: 0;
+}
+
+.profile-resume-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.profile-resume-info strong {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.profile-resume-info span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.profile-resume-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.profile-resume-btn {
+  padding: 6px 14px !important;
+  font-size: 0.78rem !important;
+  border-radius: var(--radius-full) !important;
+}
+
+.profile-resume-btn--replace {
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  border: 1.5px solid var(--border);
+}
+
+.profile-resume-btn--replace:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.profile-resume-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 4px;
+  border-radius: 6px;
+  opacity: 0.6;
+  transition: var(--transition);
+}
+
+.profile-resume-delete:hover {
+  opacity: 1;
+  background: #fef2f2;
+}
+
+/* ─── INLINE SKILL INPUT ──────────────────────────────────── */
+.profile-skill-input-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.profile-skill-input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-md);
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  background: white;
+  font-family: var(--font-body);
+  transition: var(--transition);
+  outline: none;
+}
+
+.profile-skill-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37,99,235,0.1);
+}
+
+.profile-skill-input::placeholder {
+  color: var(--text-muted);
+}
+
+.profile-skill-add-btn {
+  padding: 10px 20px !important;
+  font-size: 0.875rem !important;
+  border-radius: var(--radius-md) !important;
+  flex-shrink: 0;
+}
+
+.profile-skill-remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1;
+  padding: 0 0 0 4px;
+  display: flex;
+  align-items: center;
+  transition: var(--transition);
+}
+
+.profile-skill-remove:hover {
+  color: #dc2626;
+}
+
+.profile-skills-save-btn {
+  margin-top: 14px;
+  font-size: 0.85rem !important;
+  padding: 9px 24px !important;
+}
+
+/* ─── CONTACT ADD PROMPT ──────────────────────────────────── */
+.profile-contact-add {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--primary);
+  cursor: pointer;
+  padding: 4px 0;
+  transition: var(--transition);
+  font-family: var(--font-body);
+}
+
+.profile-contact-add:hover {
+  opacity: 0.75;
+  text-decoration: underline;
+}
+
+/* ─── PDF VIEWER MODAL ────────────────────────────────────── */
+.pdf-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.15s ease;
+}
+
+.pdf-modal-box {
+  background: white;
+  border-radius: var(--radius-xl);
+  width: 100%;
+  max-width: 860px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
+  animation: modalSlideUp 0.2s ease forwards;
+}
+
+.pdf-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+
+.pdf-modal-header h3 {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.pdf-modal-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.pdf-modal-body {
+  flex: 1;
+  overflow: hidden;
+  background: #f1f5f9;
+}
+
+.pdf-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .pdf-modal-overlay {
+    padding: 0;
+  }
+
+  .pdf-modal-box {
+    border-radius: 0;
+    height: 100vh;
+    max-width: 100%;
+  }
+}
+
+.profile-hero-edit-btn {
+  background: none;
+  border: 1.5px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: 6px 16px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 12px;
+  font-family: var(--font-body);
+}
+
+.profile-hero-edit-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-light);
+}

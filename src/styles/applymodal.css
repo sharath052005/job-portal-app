@@ -1,0 +1,435 @@
+/* ─── OVERLAY ─────────────────────────────────────────────── */
+.apply-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  backdrop-filter: blur(3px);
+  animation: fadeIn 0.15s ease;
+  overflow-y: auto;
+}
+
+/* ─── MODAL BOX ───────────────────────────────────────────── */
+.apply-modal {
+  background: white;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 580px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.2);
+  animation: modalSlideUp 0.2s ease forwards;
+  display: flex;
+  flex-direction: column;
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  margin: auto;
+}
+
+/* ─── HEADER ──────────────────────────────────────────────── */
+.apply-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: white;
+  z-index: 1;
+  border-radius: 16px 16px 0 0;
+}
+
+.apply-modal__job-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.apply-modal__job-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-size: 1rem;
+  font-family: var(--font-display);
+  flex-shrink: 0;
+}
+
+.apply-modal__job-info h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.apply-modal__job-info p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.apply-modal__close {
+  background: var(--bg-subtle);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.apply-modal__close:hover {
+  background: var(--border);
+  color: var(--text-primary);
+}
+
+/* ─── BODY ────────────────────────────────────────────────── */
+.apply-modal__body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  flex: 1;
+}
+
+.apply-modal__title {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: -8px;
+}
+
+/* ─── ERROR ───────────────────────────────────────────────── */
+.apply-modal__error {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* ─── SECTION ─────────────────────────────────────────────── */
+.apply-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.apply-section__title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.apply-section__badge {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+/* ─── RESUME ──────────────────────────────────────────────── */
+.apply-resume-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.apply-resume-info p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.apply-resume-warn {
+  color: #d97706 !important;
+  font-weight: 500;
+}
+
+.apply-link-btn {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  font-family: var(--font-body);
+  transition: var(--transition);
+}
+
+.apply-link-btn:hover {
+  text-decoration: underline;
+}
+
+.apply-upload-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border: 1.5px dashed var(--border);
+  border-radius: 10px;
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  font-family: var(--font-body);
+}
+
+.apply-upload-btn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--primary-light);
+}
+
+.apply-custom-resume {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.apply-custom-resume__icon {
+  background: #ef4444;
+  color: white;
+  font-size: 0.6rem;
+  font-weight: 800;
+  padding: 4px 6px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.apply-custom-resume__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.apply-custom-resume__info strong {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.apply-custom-resume__info span {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.apply-custom-resume__remove {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-muted);
+  font-size: 1rem;
+  padding: 4px;
+  border-radius: 6px;
+  transition: var(--transition);
+  flex-shrink: 0;
+}
+
+.apply-custom-resume__remove:hover {
+  color: #dc2626;
+  background: #fef2f2;
+}
+
+/* ─── RADIO GROUP ─────────────────────────────────────────── */
+.apply-radio-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.apply-radio {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  transition: background 0.15s ease;
+  border-bottom: 1px solid var(--border);
+}
+
+.apply-radio:last-child {
+  border-bottom: none;
+}
+
+.apply-radio input[type="radio"] {
+  display: none;
+}
+
+.apply-radio__dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.apply-radio.active {
+  background: var(--primary-light);
+  color: var(--text-primary);
+}
+
+.apply-radio.active .apply-radio__dot {
+  border-color: var(--primary);
+  background: var(--primary);
+  box-shadow: inset 0 0 0 3px white;
+}
+
+.apply-question {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* ─── FOOTER ──────────────────────────────────────────────── */
+.apply-modal__footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 16px 24px;
+  border-top: 1px solid var(--border);
+  position: sticky;
+  bottom: 0;
+  background: white;
+  border-radius: 0 0 16px 16px;
+}
+
+.apply-submit-btn {
+  padding: 12px 32px !important;
+  font-size: 0.9rem !important;
+}
+
+.apply-submit-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ─── SUCCESS STATE ───────────────────────────────────────── */
+.apply-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 48px 36px;
+  position: relative;
+}
+
+.apply-modal__close--success {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+.apply-success__icon {
+  font-size: 4rem;
+  margin-bottom: 16px;
+}
+
+.apply-success h2 {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 10px;
+}
+
+.apply-success p {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 380px;
+  margin-bottom: 24px;
+}
+
+.apply-success__tips {
+  background: var(--bg-subtle);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  text-align: left;
+  width: 100%;
+  max-width: 380px;
+  margin-bottom: 24px;
+}
+
+.apply-success__tips p {
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.apply-success__tips ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 0;
+  margin: 0;
+}
+
+.apply-success__tips ul li {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  padding-left: 16px;
+  position: relative;
+}
+
+.apply-success__tips ul li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .apply-overlay {
+    padding: 12px;
+    align-items: flex-start;
+    padding-top: 80px;
+  }
+
+  .apply-modal {
+    border-radius: 16px;
+    max-height: calc(100vh - 100px);
+    width: 100%;
+  }
+}
